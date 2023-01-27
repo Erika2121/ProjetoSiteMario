@@ -1,0 +1,154 @@
+body {
+  font-family: "Poppins";
+}
+
+.cabecalho {
+  /* background-color: blue; só p/ ir determinaod o espaço, dps tira*/
+  display: flex; /*vai deixar os filhos flexivéis*/
+  justify-content: space-between; /*vai dar espaço entre os elementos filhos*/
+  padding: 30px;
+  max-width: 1000px; /*a largura max que eu quero deixar o cabecalho*/
+  margin: 0 auto; /*aqui vamos deixar margin 0 para o top e embaixo e as laterais auto*/
+}
+
+.cabecalho .logo {
+  width: 65px;
+}
+
+.cabecalho .menu {
+  display: flex; /*vai ficar um menu do lado do outro*/
+  height: 100%; /*p/ ele ocupar todo espaço que tem p/ ele*/
+  align-items: center; /*centraliza ele*/
+}
+
+.cabecalho nav li a {
+  font-weight: bold; /*deixar negrito*/
+  color: #ffffff;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: 0.2s; /*p/ fazer uma entrada de transição nesse tempo*/
+}
+
+/*a:hover é p/ alteracoes de qnd o mouse passar por cima*/
+.cabecalho nav li a:hover {
+  background-color: #d5011d;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  height: calc(
+    100vh-132px
+  ); /*o cal fazemos uma calculo p/ tamanho da tela 100vh é altura de 100% da tela do usuario*/
+  align-items: center; /*p/ poder centralizar verticalmente, temos que dar uma altura (height) antes*/
+  padding: 0 30px 30px;
+}
+
+.container .imagem-titulo {
+  max-width: 420px; /*p/ diminuir a largura e ja diminui a altura automaticamente*/
+}
+
+.container .mario {
+  max-width: 550px;
+}
+
+.container .descricao {
+  color: #a8adb7;
+  width: 90%; /*diminuir um pouco a largura*/
+  font-size: 18px;
+  margin: 30px 0;
+}
+
+.container .botao-trailer {
+  background-color: #ff0021;
+  color: #ffffff;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer; /*p/ ficar uma maozinha na hra q encostar*/
+  border: none;
+  text-transform: uppercase;
+  transition: 0.5s all ease-in-out; /*aq ele vai dar uma animação, porem precisa ativar essa acao no hover*/
+}
+
+.container .botao-trailer:hover {
+  transform: scale(1.1);
+}
+
+.fundo-video {
+  background-color: rgb(52, 48, 48);
+  position: absolute; /*é como se estivesse sobreposto*/
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; /*seria como transbordar, e o overflow contem ele p/ corrigir esse transbordamento, deixando no tamanho certo da tela*/
+  display: flex;
+  justify-content: center;
+}
+
+.fundo-video .video {
+  height: 100vh;
+  width: 100vw;
+}
+
+/*::after, dps do elemento video, vamos criar um elemento novo, no caso p/ trabalhar a transparencia*/
+.fundo-video::after {
+  content: "";
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*opacity: 0.8;*/
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(52, 52, 50, 0.749);
+  visibility: hidden;
+}
+
+.conteudo-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  border-radius: 5px;
+  gap: 15px; /*espaço entre o X e o video*/
+}
+
+.fechar-modal {
+  background-color: #ffffff;
+  color: #f03a17;
+  font-weight: bold;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.modal iframe {
+  border-width: 0;
+  width: 640px;
+  height: 360px;
+}
+
+.modal.aberto {
+  opacity: 1;
+  visibility: visible;
+}
